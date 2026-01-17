@@ -1,0 +1,16 @@
+services:
+  sandbox:
+    build:
+      context: .
+      args:
+        UID: 501
+        GID: 20
+    stdin_open: true
+    tty: true
+    volumes:
+      - ~/.config/nvim:/home/dev/.config/nvim:ro
+      - nvim-data:/home/dev/.local/share/nvim
+      - ./workspace:/workspace
+
+volumes:
+  nvim-data:
