@@ -12,6 +12,7 @@ services:
     tty: true
     volumes:
       - ~/.config/nvim:/home/dev/.config/nvim:ro
+      - ~/.zshrc:/home/dev/.zshrc:ro
       - nvim-data:/home/dev/.local/share/nvim
       - ./workspace:/workspace
 

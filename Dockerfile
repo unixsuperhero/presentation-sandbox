@@ -6,13 +6,14 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     ripgrep \
     fd-find \
+    zsh \
     && rm -rf /var/lib/apt/lists/*
 
 ARG UID=1000
 ARG GID=1000
 
 RUN groupadd -g ${GID} dev && \
-    useradd -m -u ${UID} -g ${GID} -s /bin/bash dev
+    useradd -m -u ${UID} -g ${GID} -s /bin/zsh dev
 
 RUN mkdir -p /home/dev/.local/share/nvim /home/dev/.config && \
     chown -R dev:dev /home/dev
@@ -20,4 +21,4 @@ RUN mkdir -p /home/dev/.local/share/nvim /home/dev/.config && \
 USER dev
 WORKDIR /workspace
 
-CMD ["/bin/bash"]
+CMD ["/bin/zsh"]
