@@ -8,8 +8,9 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ~/.config/nvim:/home/dev/.config/nvim:ro
+      - ~/.config:/home/dev/.config:ro
       - ~/.zshrc:/home/dev/.zshrc:ro
+      - ~/bin:/home/dev/bin:ro
       - nvim-data:/home/dev/.local/share/nvim
       - ./workspace:/workspace
 
