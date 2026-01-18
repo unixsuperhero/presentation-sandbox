@@ -124,5 +124,9 @@ source <(starship init zsh --print-full-init)
 
 export TERM=screen-256color
 
-declare -f br || yes | broot
+declare -f br || yes | broot &>/dev/null
+source ~/.config/broot/launcher/bash/br
+
+alias h="bundle exec h"
+h setup &>/dev/null
 
