@@ -86,6 +86,16 @@
 
 ---
 
+# Procedural Thinking
+
+- thinking about programming and code as a sequence of tasks or actions
+<br/>
+- actively doing stuff
+<br/>
+- data structures and algorithms
+
+---
+
 # Why
 
 ---
