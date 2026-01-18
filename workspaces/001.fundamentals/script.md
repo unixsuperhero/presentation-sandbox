@@ -110,5 +110,37 @@
 
 ---
 
+# Fundamentals
+
+- classes/modules (paradigm doesn't matter)
+- encapsulation
+- interfaces
+- abstraction
+- levels of abstraction
+
+---
+
+# Fundamentals
+
+- classes/modules (paradigm doesn't matter)
+- encapsulation
+- interfaces
+- abstraction
+- levels of abstraction
+- **BONUS:** common L takes
+
+
+---
+
+# Fundamentals
+
+- classes/modules (paradigm doesn't matter)
+- encapsulation
+- interfaces
+- abstraction
+- levels of abstraction
+---
+
+
 
 
