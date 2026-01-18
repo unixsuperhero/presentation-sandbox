@@ -147,3 +147,5 @@ fi
 alias h="bundle exec h"
 h setup &>/dev/null
 
+
+source /root/.config/broot/launcher/bash/br

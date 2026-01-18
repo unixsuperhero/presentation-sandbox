@@ -8,14 +8,14 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - ./config/nvim:/home/dev/.config/nvim
-      - ./config/.zshrc:/home/dev/.zshrc
-      - ./config/.gitconfig:/home/dev/.gitconfig
-      - ./config/.tmux.conf:/home/dev/.tmux.conf
-      - ./config/bin:/home/dev/bin
-      - ./config/broot:/home/dev/.local/share/broot
-      - ./config/git:/home/dev/.config/git
-      - nvim-data:/home/dev/.local/share/nvim
+      - ./config/nvim:/root/.config/nvim
+      - ./config/.zshrc:/root/.zshrc
+      - ./config/.gitconfig:/root/.gitconfig
+      - ./config/.tmux.conf:/root/.tmux.conf
+      - ./config/bin:/root/bin
+      - ./config/broot:/root/.local/share/broot
+      - ./config/git:/root/.config/git
+      - nvim-data:/root/.local/share/nvim
       - ./workspace:/sandbox
 
 volumes:
