@@ -13,6 +13,7 @@ services:
       - ./config/.gitconfig:/home/dev/.gitconfig
       - ./config/.tmux.conf:/home/dev/.tmux.conf
       - ./config/bin:/home/dev/bin
+      - ./config/git:/home/dev/.config/git
       - nvim-data:/home/dev/.local/share/nvim
       - ./workspace:/sandbox
 
