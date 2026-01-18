@@ -56,5 +56,9 @@ fi
 ln -s "workspaces/$selected" workspace
 echo "Linked workspace -> workspaces/$selected"
 
+# Extract workspace name without the number-dot prefix (e.g., "001.fundamentals" -> "fundamentals")
+workspace_name="${selected#*.}"
+echo "export STARSHIP_CONTAINER_NAME=\"$workspace_name\"" > config/.zshrc.workspace
+
 docker-compose run --rm sandbox
 git checkout -p config/.zshrc

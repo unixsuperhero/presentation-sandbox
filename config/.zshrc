@@ -116,6 +116,7 @@ function pad() {
 }
 
 export PS1=$'\n'"%~ \$(git_prompt_info)"$'\n'"%#> "
+source ~/.zshrc.workspace
 
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 source <(starship init zsh --print-full-init)

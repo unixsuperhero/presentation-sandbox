@@ -1,7 +1,5 @@
 class OrderService
-  def place_order(customer_name, customer_email,
-                  street, city, zip_code,
-                  pizza_size, toppings_count)
+  def place_order(customer_name, customer_email, street, city, zip_code, pizza_size, toppings_count)
 
     unless customer_email.include?("@") && customer_email.include?(".")
       raise ArgumentError, "Invalid email format"
