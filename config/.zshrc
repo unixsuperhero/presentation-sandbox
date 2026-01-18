@@ -123,16 +123,13 @@ source <(starship init zsh --print-full-init)
 [[ -n $SSH_CONNECTION && -z $VIM && -z $TMUX ]] && tmux new -A -s remote
 
 export TERM=screen-256color
+export PATH="$HOME/.local/bin:$PATH"
 
-if [[ ! -d ~/.local/share/broot/launcher ]]; then
-  broot --install &>/dev/null
-fi
+# broot --install &>/dev/null
 
 if [[ ! -d /sandbox/.git ]]; then
   git init /sandbox
 fi
-
-[[ -a /home/dev/.config/broot/launcher/bash/br ]] && source /home/dev/.config/broot/launcher/bash/br
 
 alias h="bundle exec h"
 h setup &>/dev/null
