@@ -6,8 +6,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     ripgrep \
     fd-find \
+    broot \
     zsh \
     && rm -rf /var/lib/apt/lists/*
+RUN gem install pry hiiro
 
 ARG UID=1000
 ARG GID=1000
