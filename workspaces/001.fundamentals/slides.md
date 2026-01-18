@@ -209,3 +209,31 @@ more importantly...
 
 ---
 
+# Interface
+
+- aka it's API
+- name, inputs, and outputs
+
+---
+
+# Interface
+
+- aka it's API
+- name, inputs, and outputs
+- interface > implementation
+
+---
+
+# Interface
+
+- aka it's API
+- name, inputs, and outputs
+- interface > implementation
+- **remember:** a class is made to be used
+
+---
+
+...switch to code...
+
+---
+
