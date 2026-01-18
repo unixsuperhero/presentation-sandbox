@@ -124,3 +124,5 @@ source <(starship init zsh --print-full-init)
 
 export TERM=screen-256color
 
+declare -f br || yes | broot
+
