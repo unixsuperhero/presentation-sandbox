@@ -124,8 +124,8 @@ source <(starship init zsh --print-full-init)
 
 export TERM=screen-256color
 
-if [[ ! -d ~/.local/share/broot ]]; then
-  yes | broot &>/dev/null
+if [[ ! -d ~/.local/share/broot/launcher ]]; then
+  broot --install &>/dev/null
 fi
 
 if [[ ! -d /sandbox/.git ]]; then
