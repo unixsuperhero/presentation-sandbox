@@ -56,5 +56,5 @@ fi
 ln -s "workspaces/$selected" workspace
 echo "Linked workspace -> workspaces/$selected"
 
-docker compose run --rm sandbox
+docker-compose run --rm sandbox
 git checkout -p config/.zshrc
