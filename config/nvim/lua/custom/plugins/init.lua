@@ -15,4 +15,12 @@ return {
     priority = 1000,
     opts = {},
   },
+
+  {
+    "unixsuperhero/demo.nvim",
+    name = "demo.nvim",
+    config = function()
+      require('demo').setup()
+    end,
+  },
 }
