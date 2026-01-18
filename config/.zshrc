@@ -128,6 +128,10 @@ if [[ ! -d ~/.local/share/broot ]]; then
   yes | broot &>/dev/null
 fi
 
+if [[ ! -d /sandbox/.git ]]; then
+  git init /sandbox
+fi
+
 [[ -a /home/dev/.config/broot/launcher/bash/br ]] && source /home/dev/.config/broot/launcher/bash/br
 
 alias h="bundle exec h"
