@@ -125,7 +125,20 @@ source <(starship init zsh --print-full-init)
 export TERM=screen-256color
 export PATH="$HOME/.local/bin:$PATH"
 
-# broot --install &>/dev/null
+broot --install &>/dev/null
+function br {
+    local cmd cmd_file code
+    cmd_file=$(mktemp)
+    if broot --outcmd "$cmd_file" "$@"; then
+        cmd=$(<"$cmd_file")
+        command rm -f "$cmd_file"
+        eval "$cmd"
+    else
+        code=$?
+        command rm -f "$cmd_file"
+        return "$code"
+    fi
+}
 
 if [[ ! -d /sandbox/.git ]]; then
   git init /sandbox
