@@ -132,15 +132,80 @@
 
 ---
 
-# Fundamentals
+# Classes
 
-- classes/modules (paradigm doesn't matter)
-- encapsulation
-- interfaces
-- abstraction
-- levels of abstraction
 ---
 
+# Classes
 
+- not just a box for code
 
+---
+
+# Classes
+
+- not just a box for code
+- encapsulating or representing an idea aka a thing
+
+---
+
+# Classes
+
+- not just a box for code
+- encapsulating or representing an idea aka a thing
+- at its core, the data is what give the idea its shape
+
+---
+
+# Classes
+
+more importantly...
+
+- classes are made to be used
+
+---
+
+# Encapsulation
+
+---
+
+# Encapsulation
+
+- a class's attributes (it's data) is precious
+
+---
+
+# Encapsulation
+
+- a class's attributes (it's data) is precious
+- other classes should never be access it directly
+
+---
+
+# Encapsulation
+
+- a class's attributes (it's data) is precious
+- other classes should never be access it directly
+- all interaction should be done via methods
+
+---
+
+# Encapsulation
+
+- a class's attributes (it's data) is precious
+- other classes should never be access it directly
+- all interaction should be done via methods
+- other classes shouldn't know anything about a class except for...
+
+---
+
+# Interface
+
+---
+
+# Interface
+
+- aka it's API
+
+---
 
