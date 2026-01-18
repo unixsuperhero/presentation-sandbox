@@ -14,20 +14,18 @@
 # Concepts that every developer should know
 
 - There's one mistake that is very common
-- Even good devs
-
----
-
-# Concepts that every developer should know
-
-- There's one mistake that is very common
-- Even good devs
 - It's the main way AI writes code
     - majority of training data
 
 ---
 
 ...but it's not quite a mistake
+
+---
+
+...but it's not quite a mistake
+
+   because it's actually...
 
 ---
 

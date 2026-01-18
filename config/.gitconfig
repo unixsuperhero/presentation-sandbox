@@ -6,7 +6,7 @@
   defaultBranch = main
 [core]
   whitespace = trailing-space,tab-in-indent,cr-at-eol,blank-at-eol,blank-at-eof
-  excludesFile = ~/.config/git/ignore
+  excludesFile = ~/.gitignore.global
 [diff]
   algorithm = histogram
   colorMoved = plain

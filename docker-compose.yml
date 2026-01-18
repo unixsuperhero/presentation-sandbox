@@ -13,6 +13,7 @@ services:
       - ./config/.zshrc:/root/.zshrc
       - ./config/.zshrc.workspace:/root/.zshrc.workspace
       - ./config/.gitconfig:/root/.gitconfig
+      - ./config/.gitignore.global:/root/.gitignore.global
       - ./config/.tmux.conf:/root/.tmux.conf
       - ./config/nvim:/root/.config/nvim
       - ./config/git:/root/.config/git
