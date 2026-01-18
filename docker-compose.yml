@@ -18,6 +18,7 @@ services:
       - ./config/git:/root/.config/git
       - ./config/starship:/root/.config/starship
       - ./config/broot:/root/.local/share/broot
+      - ./config/demo.nvim:/root/.local/share/nvim/lazy/demo.nvim
       - nvim-data:/root/.local/share/nvim
 
 volumes:
