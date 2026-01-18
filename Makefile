@@ -1,7 +1,7 @@
 .PHONY: build run all
 
 build:
-	./build
+	./bin/build
 
 run:
 	@if [ -z "$(w)" ]; then \
@@ -10,7 +10,7 @@ run:
 		echo "  make run w=fund"; \
 		exit 1; \
 	fi
-	./run $(w)
+	./bin/run $(w)
 
 all: build
-	./run $(w)
+	./bin/run $(w)
