@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y \
     fd-find \
     broot \
     zsh \
+    tmux \
+    starship \
     && rm -rf /var/lib/apt/lists/*
 RUN gem install pry hiiro
 
@@ -21,6 +23,6 @@ RUN mkdir -p /home/dev/.local/share/nvim /home/dev/.config && \
     chown -R ${UID}:${GID} /home/dev
 
 USER dev
-WORKDIR /workspace
+WORKDIR /sandbox
 
 CMD ["/bin/zsh"]

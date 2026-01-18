@@ -124,4 +124,4 @@ source <(starship init zsh --print-full-init)
 
 export TERM=screen-256color
 
-source $HOME/.config/broot/launcher/bash/br
+test -a $HOME/.config/broot/launcher/bash/br && source $HOME/.config/broot/launcher/bash/br
