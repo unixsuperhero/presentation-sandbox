@@ -123,7 +123,7 @@ source <(starship init zsh --print-full-init)
 [[ -n $SSH_CONNECTION && -z $VIM && -z $TMUX ]] && tmux new -A -s remote
 
 export TERM=screen-256color
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH:$HOME/go/bin"
 
 broot --install &>/dev/null
 function br {
