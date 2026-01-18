@@ -10,6 +10,7 @@ services:
     volumes:
       - ./config/nvim:/home/dev/.config/nvim
       - ./config/.zshrc:/home/dev/.zshrc
+      - ./config/.gitconfig:/home/dev/.gitconfig
       - ./config/.tmux.conf:/home/dev/.tmux.conf
       - ./config/bin:/home/dev/bin
       - nvim-data:/home/dev/.local/share/nvim
