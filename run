@@ -1,4 +1,60 @@
 #!/bin/bash
 
+set -e
+
+if [[ -z "$1" ]]; then
+  echo "Usage: ./run <number|name>"
+  echo "  ./run 1          # matches 001.fundamentals"
+  echo "  ./run fund       # matches 001.fundamentals"
+  exit 1
+fi
+
+arg="$1"
+matches=()
+
+# If arg is a number, zero-pad it to 3 digits
+if [[ "$arg" =~ ^[0-9]+$ ]]; then
+  padded=$(printf "%03d" "$arg")
+  for dir in workspaces/*/; do
+    dirname=$(basename "$dir")
+    if [[ "$dirname" == "$padded"* ]]; then
+      matches+=("$dirname")
+    fi
+  done
+else
+  # Match against the name part (after the number prefix)
+  for dir in workspaces/*/; do
+    dirname=$(basename "$dir")
+    if [[ "$dirname" == *"$arg"* ]]; then
+      matches+=("$dirname")
+    fi
+  done
+fi
+
+if [[ ${#matches[@]} -eq 0 ]]; then
+  echo "No workspace found matching: $arg"
+  exit 1
+elif [[ ${#matches[@]} -gt 1 ]]; then
+  echo "Multiple workspaces match '$arg':"
+  for match in "${matches[@]}"; do
+    echo "  $match"
+  done
+  exit 1
+fi
+
+selected="${matches[0]}"
+echo "Selecting workspace: $selected"
+
+# Remove existing workspace symlink if present
+if [[ -L workspace ]]; then
+  rm workspace
+elif [[ -e workspace ]]; then
+  echo "Error: workspace exists but is not a symlink"
+  exit 1
+fi
+
+ln -s "workspaces/$selected" workspace
+echo "Linked workspace -> workspaces/$selected"
+
 docker compose run --rm sandbox
 git checkout -p config/.zshrc

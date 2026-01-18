@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install -y \
     broot \
     zsh \
     tmux \
-    starship \
-    && rm -rf /var/lib/apt/lists/*
+    starship
 RUN gem install pry hiiro
 
 ARG UID=1000
