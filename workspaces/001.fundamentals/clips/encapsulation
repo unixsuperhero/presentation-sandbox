@@ -1,0 +1,12 @@
+now let's look at encapsulation, which suggests that a class's attributes are
+precious.  no other class should directly access its attributes.  that's why we
+have setters and getters.
+
+all interactions and communication should happen via methods.  but not only
+should other classes not access attributes, other class's shouldn't know
+anything about a method's implementation.
+
+when the outside world knows how a method is implemented, it will do special
+things to accomodate that implementation, and this is how you get tight
+coupling.  because when that implementation changes, the other classes now have
+to change as a result.

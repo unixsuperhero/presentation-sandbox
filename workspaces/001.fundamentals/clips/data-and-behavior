@@ -1,0 +1,7 @@
+let's take a second to compare the properties of data and behavior.
+
+procedures are contextual and inherently have a form of coupling called temporal
+coupling.  this means that the order matters.
+
+data, on the other hand, is context-free.  it may hold state, but data itself
+is stateless, it's informations, it just is.  so it's much more reusable

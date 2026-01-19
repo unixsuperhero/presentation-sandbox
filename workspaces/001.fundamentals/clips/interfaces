@@ -1,0 +1,17 @@
+which is why interfaces is the next topic.
+
+so, from the outside, a class shouldn't know anything about how another class
+works.  all it should know is it's interface, or API.
+
+the interface of a method is it's name, it's inputs or arguments, and it's
+output or return value.  that's it.
+
+interfaces are more important than implementations.
+when another class is coupled to the interface, than the implementation can
+change freely and it won't be affected.
+
+the problem with procedures and procedural thinking, is all the focus is on the
+implementation.
+
+remember classes are made to be used.  let's look at some ai generated code and
+see what the interface tells us.

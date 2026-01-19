@@ -1,3 +1,4 @@
 config/.zshrc.workspace
 config/broot/launcher/*
-workspaces/*/clips
+workspaces/*/clips/**/*.wav
+workspaces/*/clips/**/*.mkv
