@@ -1,12 +1,27 @@
 now let's look at encapsulation, which suggests that a class's attributes are
-precious.  no other class should directly access its attributes.  that's why we
-have setters and getters.
+precious.  no other class should directly access its attributes.  this is why 
+setters and getters are a thing.
 
-all interactions and communication should happen via methods.  but not only
-should other classes not access attributes, other class's shouldn't know
-anything about a method's implementation.
+all interactions and communication should happen via methods.  and these methods
+form a contract.  all interactions are restricted to these pre-defined
+interactions.  this creates a controlled environment and limits the possibility
+of unknown states or unexpected situations.
+
+this lets us tightly control the data.  but encapsulation suggests one other
+thing.
+other classes shouldn't know anything about a method's implementation either.
 
 when the outside world knows how a method is implemented, it will do special
 things to accomodate that implementation, and this is how you get tight
-coupling.  because when that implementation changes, the other classes now have
-to change as a result.
+coupling.  because when that implementation changes, those other classes now have
+to change as a result.  it's not just for the caller either.  if a method knows
+who's calling it, then it might also do special things for the caller.
+
+with procedural thinking, making methods is less of a priority.  and even if you
+make methods, ...and even if you expose those methods to other classes, their
+real intention is for internal use.  which means they specifically exist to
+support the procedure. remember classes and methods are made to be used.
+
+but it also means that the two methods know too much about how the other one
+works, violating encapsulation.  so inputs and outputs, or worse, side-effects
+are tailored to be used in very specific scenarios.
