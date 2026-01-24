@@ -1,20 +1,9 @@
 let's look at encapsulation and interfaces.
 
-encapsulation basically says that one class shouldn't know anything about the
-internals of another class or its methods.  an object's attributes are precious
-and no one else should access them directly.  so everything happens via methods.
-but, no one should know anything about the implementation of those methods.
+encapsulation basically says that one class shouldn't know anything about the internals of another class or its methods.  an object's attributes are precious and no one else should access them directly.  so everything happens via methods. but, no one should know anything about the implementation of those methods.
 
-the only thing that anyone should know is the class's publicly exposed interface.
-its interface, or api, is the method names, inputs, and output.  that's it.
-when classes know too much about each other, they tend to do special things
-because of it.
+the only thing that anyone should know is the class's publicly exposed interface. its interface, or api, is the method names, inputs, and output.  that's it. when classes know too much about each other, they tend to do special things because of it.
 
-this creates tight coupling.  and then when one class changes, other classes
-need to be changed along with it.
+this creates tight coupling.  and then when one class changes, other classes need to be changed along with it.
 
-this is why a method's interface is more important than its implementation.
-but with procedural thinking, a procedure's implementation is inherently
-important.  and then a method's usefulness is less about it's output, and
-more about it's side-effects.  and a class's methods become less about what they
-offer others, and exist to support the procedure in overly specific ways.
+this is why a method's interface is more important than its implementation. but with procedural thinking, a procedure's implementation is inherently important.  and then a method's usefulness is less about it's output, and more about it's side-effects.  and a class's methods become less about what they offer others, and exist to support the procedure in overly specific ways.
