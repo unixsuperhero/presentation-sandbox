@@ -149,5 +149,6 @@ fi
 alias h="bundle exec h"
 h setup &>/dev/null
 
+alias fd=fdfind
 
 source /root/.config/broot/launcher/bash/br
