@@ -1,0 +1,32 @@
+
+# the unix philosophy
+
+1. do one thing and do it well
+2. write programs that work together
+3. use text for everything because that's the universal interface
+
+
+## extrapolated
+
+1. SRP, atomic operations.... limit the scope
+2. make it composable
+3. have good interfaces - interface > implementation
+
+
+# categories of tools
+
+- git status - listing files
+- git diff - listing files
+- git log - listing commits
+- git root/master/sha/lb/rb - informational
+
+# git status & git diff
+
+cmd -> list of files
+
+- status - changed but not commit
+  - git status -s|--short
+- diff - what files changed between 2 HEADs
+  - git diff --name-only --relative
+
+

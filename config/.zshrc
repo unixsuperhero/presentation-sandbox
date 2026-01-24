@@ -19,7 +19,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-alias g="git"
+
+
+
 alias gaa="git add --all"
 alias gb="git branch -i"
 alias gbr="git branch -i --sort=authordate"
@@ -40,13 +42,23 @@ alias gph="git push origin HEAD"
 alias gpod="git pull origin development"
 alias gpom="git pull origin master"
 alias gpr="git pull --rebase"
-alias gss="git add --all -N; git diff head --name-only --diff-filter=d"
+alias gss="git add --all -N; git diff HEAD --name-only --diff-filter=d"
 alias gst="git status -s"
 alias spring="bin/spring"
 alias st="git status -s"
 alias greset="git checkout .; git clean -fd"
-alias spring="bin/spring"
-alias webpack="bin/webpack"
+
+function glink() {
+  git symbolic-ref refs/heads/$1 refs/heads/$2
+}
+
+function gss() {
+  if test $# -gt 0; then
+    git status -s | sed 's/...//;s/.* -> //' | rg -i "$*"
+  else
+    git status -s | sed 's/...//;s/.* -> //'
+  fi
+}
 
 alias specs="rg _spec"
 alias rubies="rg '[.]rb$'"
@@ -54,8 +66,18 @@ alias ber="bundle exec rspec"
 alias bers="bundle exec rspec \$(gddev | specs)"
 alias berof="bundle exec rspec --only-failures"
 alias dirty="bundle exec rspec \$(gss | specs)"
+alias gbs="gb | sed 's/.*[[:space:]]//' | sk"
 
 alias gorb="test \$? -eq 0 && say good || say bad"
+
+
+
+
+
+
+
+
+
 
 function file_exists {
   while read fn
@@ -72,8 +94,6 @@ function gddev {
   fi
 }
 
-alias gbs="gb | sed 's/.*[[:space:]]//' | sk"
-
 alias sc="bin/rails c"
 alias ss="bin/rails s -p 3000"
 alias ssp="bin/rails s -p"
@@ -87,18 +107,6 @@ alias ls="ls -A1"
 alias ll="ls -Al"
 alias lsr="ls -A1tr"
 alias llr="ls -Altr"
-
-function _gss() {
-  if test $# -gt 0; then
-    git status -s | sed 's/...//;s/.* -> //' | rg -i "$*"
-  else
-    git status -s | sed 's/...//;s/.* -> //'
-  fi
-}
-
-function glink() {
-  git symbolic-ref refs/heads/$1 refs/heads/$2
-}
 
 function glinkcb() {
   git symbolic-ref refs/heads/$1 refs/heads/$(git cb)
