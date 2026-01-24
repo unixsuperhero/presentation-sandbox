@@ -1,0 +1,9 @@
+0000000000000000000000000000000000000000 99d551c85832d1872ab2970b59da95ff8b77f002 unixsuperhero <unixsuperhero+github@gmail.com> 1769222812 +0000	clone: from /sandbox/.
+99d551c85832d1872ab2970b59da95ff8b77f002 bc8c001abae1a597056447906970790601351773 unixsuperhero <unixsuperhero+github@gmail.com> 1769223140 +0000	reset: moving to HEAD~8
+bc8c001abae1a597056447906970790601351773 bc8c001abae1a597056447906970790601351773 unixsuperhero <unixsuperhero+github@gmail.com> 1769223161 +0000	checkout: moving from main to f2
+bc8c001abae1a597056447906970790601351773 a0a4fe474f188b94508a708acdaf649d2e0d60e1 unixsuperhero <unixsuperhero+github@gmail.com> 1769223228 +0000	commit: update file17...again
+a0a4fe474f188b94508a708acdaf649d2e0d60e1 bc8c001abae1a597056447906970790601351773 unixsuperhero <unixsuperhero+github@gmail.com> 1769223482 +0000	reset: moving to HEAD~1
+bc8c001abae1a597056447906970790601351773 a0a4fe474f188b94508a708acdaf649d2e0d60e1 unixsuperhero <unixsuperhero+github@gmail.com> 1769223503 +0000	reset: moving to @{1}
+a0a4fe474f188b94508a708acdaf649d2e0d60e1 bc8c001abae1a597056447906970790601351773 unixsuperhero <unixsuperhero+github@gmail.com> 1769223508 +0000	checkout: moving from f2 to main
+bc8c001abae1a597056447906970790601351773 e6e09cbc08320d1894a3a0ea1d4de4e596535dd7 unixsuperhero <unixsuperhero+github@gmail.com> 1769223514 +0000	reset: moving to HEAD~
+e6e09cbc08320d1894a3a0ea1d4de4e596535dd7 a0a4fe474f188b94508a708acdaf649d2e0d60e1 unixsuperhero <unixsuperhero+github@gmail.com> 1769223518 +0000	checkout: moving from main to f2
