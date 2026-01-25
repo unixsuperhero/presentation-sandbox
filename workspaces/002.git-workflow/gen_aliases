@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+sets = [
+  %w[--oneline],
+  %w[--decorate],
+  %w[--name-status --name-only],
+  %w[--relative],
+  %w[--graph],
+  %w[--left-right],
+]
+
+all_sets = sets.map do |options|
+  longest = options.max_by(&:length).length
+  options << [' ' * longest]
+
+  options
+end
+
+alias_names = []
+i=0
+aliases = all_sets.inject(:product).map(&:flatten).each_with_object({}) do |args,h|
+  i += 1
+  alias_name = 'glog' + args.map{|arg| arg.match(/(?:-)(\w)/)&.captures&.join || '_' }.join + i.to_s
+  alias_names << alias_name
+  h[alias_name] = ['git log', *args].join(" ").inspect
+end
+
+aliases.each do |n,v|
+  puts "alias #{n}=#{v}"
+end
