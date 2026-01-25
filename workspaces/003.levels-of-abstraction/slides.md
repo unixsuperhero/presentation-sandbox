@@ -70,24 +70,15 @@ A rule...
     - a customer wants to:
         - find products
         - add products to cart
-        - put item back
         - checkout
-        - pay
-        - enter
-        - leave
     - a employee wants to:
         - in warehouse or "front of the house"
             - find products
             - ring up customer
-            - charge customer
             - bag products
-            - accept payment
-            - deliver receipt
         - in warehouse or "back of the house"
             - find products
             - label products
-            - store products
-            - display products
 
 ---
 
