@@ -61,4 +61,6 @@ workspace_name="${selected#*.}"
 echo "export STARSHIP_CONTAINER_NAME=\"$workspace_name\"" > config/.zshrc.workspace
 
 docker-compose run --rm sandbox
+ls -ld workspace
+rm -iv workspace
 git checkout -p config/.zshrc
