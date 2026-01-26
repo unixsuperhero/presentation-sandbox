@@ -11,16 +11,22 @@ sets = [
 
 all_sets = sets.map do |options|
   longest = options.max_by(&:length).length
-  options << [' ' * longest]
+  options << ' '
 
-  options
+  options.map{|x| sprintf("%-#{longest}s", x) }
 end
 
 alias_names = []
 i=0
 aliases = all_sets.inject(:product).map(&:flatten).each_with_object({}) do |args,h|
   i += 1
-  alias_name = 'glog' + args.map{|arg| arg.match(/(?:-)(\w)/)&.captures&.join || '_' }.join + i.to_s
+  alias_name = 'glog' + args.map.with_index do |arg,i|
+    alias_len = sets[i].first.scan(/(?:-)\w/).count
+    alias_variation = arg.split(/-+/).map{|x| x.chars.first }.join
+    picked = (alias_variation || ('_' * alias_len)).gsub(/[\s_-]/, '_')
+    picked = ?_ + picked if picked.length != alias_len
+    picked
+  end.join
   alias_names << alias_name
   h[alias_name] = ['git log', *args].join(" ").inspect
 end

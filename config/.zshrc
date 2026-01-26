@@ -160,3 +160,9 @@ h setup &>/dev/null
 alias fd=fdfind
 
 source /root/.config/broot/launcher/bash/br
+
+export ns="--name-status"
+export nonly="--name-only"
+export rel="--relative"
+export gg="--graph"
+
