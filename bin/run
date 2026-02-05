@@ -148,6 +148,13 @@ docker-compose -f docker-compose.yml -f "$override_file" build sandbox
 # Run docker-compose with override
 docker-compose -f docker-compose.yml -f "$override_file" run --rm sandbox
 
+# Run optional workspace cleanup script
+cleanup_script="$workspace_path/cleanup"
+if [[ -x "$cleanup_script" ]]; then
+  echo "Running cleanup script: $cleanup_script"
+  "$cleanup_script"
+fi
+
 # Cleanup
 ls -ld workspace
 rm -iv workspace
