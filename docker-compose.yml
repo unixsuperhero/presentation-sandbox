@@ -2,9 +2,7 @@ services:
   sandbox:
     build:
       context: .
-      args:
-        UID: 501
-        GID: 20
+      target: full
     stdin_open: true
     tty: true
     volumes:
