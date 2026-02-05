@@ -43,7 +43,15 @@ elif [[ ${#matches[@]} -gt 1 ]]; then
 fi
 
 selected="${matches[0]}"
+workspace_path="workspaces/$selected"
 echo "Selecting workspace: $selected"
+
+# Ensure workdir exists
+if [[ ! -d "$workspace_path/workdir" ]]; then
+  echo "Error: $workspace_path/workdir does not exist"
+  echo "Workspace structure should be: workspaces/NAME/workdir/"
+  exit 1
+fi
 
 # Remove existing workspace symlink if present
 if [[ -L workspace ]]; then
@@ -53,14 +61,89 @@ elif [[ -e workspace ]]; then
   exit 1
 fi
 
-ln -s "workspaces/$selected" workspace
-echo "Linked workspace -> workspaces/$selected"
+# Link to workdir subdirectory
+ln -s "$workspace_path/workdir" workspace
+echo "Linked workspace -> $workspace_path/workdir"
 
 # Extract workspace name without the number-dot prefix (e.g., "001.fundamentals" -> "fundamentals")
 workspace_name="${selected#*.}"
 echo "export STARSHIP_CONTAINER_NAME=\"$workspace_name\"" > config/.zshrc.workspace
 
-docker-compose run --rm sandbox
+# Parse workspace.yml and generate docker-compose override
+workspace_yml="$workspace_path/workspace.yml"
+override_file="docker-compose.override.yml"
+
+# Default values
+image_target="full"
+hiiro_enabled="true"
+use_workspace_bin="false"
+use_workspace_configs="false"
+use_workspace_nvim="false"
+
+# Parse workspace.yml if it exists
+if [[ -f "$workspace_yml" ]]; then
+  echo "Reading workspace configuration from $workspace_yml"
+
+  # Use Ruby to parse YAML (available in Docker image)
+  eval "$(ruby -ryaml -e '
+    config = YAML.load_file(ARGV[0]) rescue {}
+
+    puts "image_target=\"#{config["image"] || "full"}\""
+
+    shell = config["shell"] || {}
+    puts "hiiro_enabled=\"#{shell["hiiro"] != false}\""
+
+    volumes = config["volumes"] || {}
+    puts "use_workspace_bin=\"#{volumes["bin"] == true}\""
+    puts "use_workspace_configs=\"#{volumes["configs"] == true}\""
+    puts "use_workspace_nvim=\"#{volumes["nvim"] == true}\""
+  ' "$workspace_yml" 2>/dev/null)" || true
+fi
+
+echo "Configuration: image=$image_target, hiiro=$hiiro_enabled"
+
+# Generate docker-compose.override.yml
+cat > "$override_file" << OVERRIDE
+services:
+  sandbox:
+    build:
+      target: $image_target
+    environment:
+      - HIIRO_ENABLED=$hiiro_enabled
+    volumes:
+      - ./workspace:/sandbox
+      - ./config/.zshrc:/root/.zshrc
+      - ./config/.zshrc.workspace:/root/.zshrc.workspace
+      - ./config/.gitconfig:/root/.gitconfig
+      - ./config/.gitignore.global:/root/.gitignore.global
+      - ./config/.tmux.conf:/root/.tmux.conf
+      - ./config/git:/root/.config/git
+      - ./config/starship:/root/.config/starship
+      - ./config/broot:/root/.local/share/broot
+      - ./config/demo.nvim:/root/.local/share/nvim/lazy/demo.nvim
+      - nvim-data:/root/.local/share/nvim
+OVERRIDE
+
+# Add bin volume (workspace or global)
+if [[ "$use_workspace_bin" == "true" ]] && [[ -d "$workspace_path/bin" ]]; then
+  echo "      - ./$workspace_path/bin:/root/bin" >> "$override_file"
+  echo "Using workspace bin/"
+else
+  echo "      - ./config/bin:/root/bin" >> "$override_file"
+fi
+
+# Add nvim config volume (workspace or global)
+if [[ "$use_workspace_nvim" == "true" ]] && [[ -d "$workspace_path/nvim" ]]; then
+  echo "      - ./$workspace_path/nvim:/root/.config/nvim" >> "$override_file"
+  echo "Using workspace nvim/"
+else
+  echo "      - ./config/nvim:/root/.config/nvim" >> "$override_file"
+fi
+
+# Run docker-compose with override
+docker-compose -f docker-compose.yml -f "$override_file" run --rm sandbox
+
+# Cleanup
 ls -ld workspace
 rm -iv workspace
-git checkout -p config/.zshrc
+rm -f "$override_file"

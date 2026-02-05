@@ -5,20 +5,6 @@ services:
       target: full
     stdin_open: true
     tty: true
-    volumes:
-      - ./workspace:/sandbox
-      - ./config/bin:/root/bin
-      - ./config/.zshrc:/root/.zshrc
-      - ./config/.zshrc.workspace:/root/.zshrc.workspace
-      - ./config/.gitconfig:/root/.gitconfig
-      - ./config/.gitignore.global:/root/.gitignore.global
-      - ./config/.tmux.conf:/root/.tmux.conf
-      - ./config/nvim:/root/.config/nvim
-      - ./config/git:/root/.config/git
-      - ./config/starship:/root/.config/starship
-      - ./config/broot:/root/.local/share/broot
-      - ./config/demo.nvim:/root/.local/share/nvim/lazy/demo.nvim
-      - nvim-data:/root/.local/share/nvim
 
 volumes:
   nvim-data:

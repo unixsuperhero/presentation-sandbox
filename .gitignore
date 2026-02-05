@@ -5,3 +5,4 @@ workspaces/*/clips/**/*.mkv
 workspaces/**/.git/*
 /workspace
 workspaces/*/
+docker-compose.override.yml
