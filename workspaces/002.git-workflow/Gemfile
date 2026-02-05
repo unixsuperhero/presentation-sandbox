@@ -1,4 +1,0 @@
-ruby "3.3.10"
-
-gem 'pry'
-gem 'pry-doc'
