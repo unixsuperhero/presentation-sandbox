@@ -76,28 +76,44 @@ override_file="docker-compose.override.yml"
 # Default values
 image_target="full"
 hiiro_enabled="true"
-use_workspace_bin="false"
-use_workspace_configs="false"
-use_workspace_nvim="false"
+workspace_volumes=()
+skip_nvim_data="false"
 
 # Parse workspace.yml if it exists
 if [[ -f "$workspace_yml" ]]; then
   echo "Reading workspace configuration from $workspace_yml"
 
-  # Use Ruby to parse YAML (available in Docker image)
+  # Use Ruby to parse YAML
   eval "$(ruby -ryaml -e '
     config = YAML.load_file(ARGV[0]) rescue {}
+    workspace_path = ARGV[1]
 
     puts "image_target=\"#{config["image"] || "full"}\""
 
     shell = config["shell"] || {}
     puts "hiiro_enabled=\"#{shell["hiiro"] != false}\""
 
+    # Process volumes as key-value pairs (src: dest)
     volumes = config["volumes"] || {}
-    puts "use_workspace_bin=\"#{volumes["bin"] == true}\""
-    puts "use_workspace_configs=\"#{volumes["configs"] == true}\""
-    puts "use_workspace_nvim=\"#{volumes["nvim"] == true}\""
-  ' "$workspace_yml" 2>/dev/null)" || true
+    volumes.each do |src, dest|
+      # Resolve source path based on prefix
+      resolved_src = case src
+        when /^\//        # Absolute path
+          src
+        when /^\.\//      # Relative to workspace dir
+          "./#{workspace_path}/#{src[2..]}"
+        else              # Relative to repo root
+          "./#{src}"
+        end
+
+      puts "workspace_volumes+=(\"#{resolved_src}:#{dest}\")"
+
+      # Check if this mounts over nvim-data location
+      if dest == "/root/.local/share/nvim"
+        puts "skip_nvim_data=\"true\""
+      end
+    end
+  ' "$workspace_yml" "$workspace_path" 2>/dev/null)" || true
 fi
 
 echo "Configuration: image=$image_target, hiiro=$hiiro_enabled"
@@ -122,24 +138,20 @@ services:
       - ./config/starship:/root/.config/starship
       - ./config/broot:/root/.local/share/broot
       - ./config/demo.nvim:/root/.local/share/nvim/lazy/demo.nvim
-      - nvim-data:/root/.local/share/nvim
+      - ./config/bin:/root/bin
+      - ./config/nvim:/root/.config/nvim
 OVERRIDE
 
-# Add bin volume (workspace or global)
-if [[ "$use_workspace_bin" == "true" ]] && [[ -d "$workspace_path/bin" ]]; then
-  echo "      - ./$workspace_path/bin:/root/bin" >> "$override_file"
-  echo "Using workspace bin/"
-else
-  echo "      - ./config/bin:/root/bin" >> "$override_file"
+# Add nvim-data volume unless workspace overrides it
+if [[ "$skip_nvim_data" != "true" ]]; then
+  echo "      - nvim-data:/root/.local/share/nvim" >> "$override_file"
 fi
 
-# Add nvim config volume (workspace or global)
-if [[ "$use_workspace_nvim" == "true" ]] && [[ -d "$workspace_path/nvim" ]]; then
-  echo "      - ./$workspace_path/nvim:/root/.config/nvim" >> "$override_file"
-  echo "Using workspace nvim/"
-else
-  echo "      - ./config/nvim:/root/.config/nvim" >> "$override_file"
-fi
+# Add workspace-specific volumes
+for vol in "${workspace_volumes[@]}"; do
+  echo "      - $vol" >> "$override_file"
+  echo "Adding volume: $vol"
+done
 
 # Build the correct image target before running
 echo "Building image with target: $image_target"
