@@ -154,8 +154,11 @@ if [[ ! -d /sandbox/.git ]]; then
   git init /sandbox
 fi
 
-alias h="bundle exec h"
-h setup &>/dev/null
+# hiiro setup (controlled by HIIRO_ENABLED env var, defaults to true)
+if command -v h &>/dev/null && [[ "${HIIRO_ENABLED:-true}" == "true" ]]; then
+  alias h="bundle exec h"
+  h setup &>/dev/null
+fi
 
 alias fd=fdfind
 
