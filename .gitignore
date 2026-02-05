@@ -4,3 +4,4 @@ workspaces/*/clips/**/*.wav
 workspaces/*/clips/**/*.mkv
 workspaces/**/.git/*
 /workspace
+workspaces/*/
