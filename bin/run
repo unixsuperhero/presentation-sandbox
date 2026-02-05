@@ -140,6 +140,10 @@ else
   echo "      - ./config/nvim:/root/.config/nvim" >> "$override_file"
 fi
 
+# Build the correct image target before running
+echo "Building image with target: $image_target"
+docker-compose -f docker-compose.yml -f "$override_file" build sandbox
+
 # Run docker-compose with override
 docker-compose -f docker-compose.yml -f "$override_file" run --rm sandbox
 
