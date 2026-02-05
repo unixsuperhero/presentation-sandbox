@@ -118,6 +118,7 @@ services:
       - ./config/.gitignore.global:/root/.gitignore.global
       - ./config/.tmux.conf:/root/.tmux.conf
       - ./config/git:/root/.config/git
+      - ./config/ssh:/root/.ssh
       - ./config/starship:/root/.config/starship
       - ./config/broot:/root/.local/share/broot
       - ./config/demo.nvim:/root/.local/share/nvim/lazy/demo.nvim
