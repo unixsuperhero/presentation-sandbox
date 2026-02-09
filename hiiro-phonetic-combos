@@ -1,0 +1,36 @@
+
+
+combo 1    {HE IH R OW0}.
+combo 2    {HE IH R 0W1}.
+combo 3    {HE IH1 R OW0}.
+combo 4    {HE IH1 R 0W1}.
+combo 5    {HE IY R OW0}.
+combo 6    {HE IY R 0W1}.
+combo 7    {HE IY1 R OW0}.
+combo 8    {HE IY1 R 0W1}.
+combo 9    {HH IH R OW0}.
+combo 10   {HH IH R 0W1}.
+combo 11   {HH IH1 R OW0}.
+combo 12   {HH IH1 R 0W1}.
+combo 13   {HH IY R OW0}.
+combo 14   {HH IY R 0W1}.
+combo 15   {HH IY1 R OW0}.
+combo 16   {HH IY1 R 0W1}.
+
+combo 1    {HE IH  IH  R OW0}.
+combo 2    {HE IH  IH  R 0W1}.
+combo 3    {HE IH1 IH1 R OW0}.
+combo 4    {HE IH1 IH1 R 0W1}.
+combo 5    {HE IY  IY  R OW0}.
+combo 6    {HE IY  IY  R 0W1}.
+combo 7    {HE IY1 IY1 R OW0}.
+combo 8    {HE IY1 IY1 R 0W1}.
+combo 9    {HH IH  IH  R OW0}.
+combo 10   {HH IH  IH  R 0W1}.
+combo 11   {HH IH1 IH1 R OW0}.
+combo 12   {HH IH1 IH1 R 0W1}.
+combo 13   {HH IY  IY  R OW0}.
+combo 14   {HH IY  IY  R 0W1}.
+combo 15   {HH IY1 IY1 R OW0}.
+combo 16   {HH IY1 IY1 R 0W1}.
+
