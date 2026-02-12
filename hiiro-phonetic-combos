@@ -17,20 +17,62 @@ combo 14   {HH IY R 0W1}.
 combo 15   {HH IY1 R OW0}.
 combo 16   {HH IY1 R 0W1}.
 
-combo 1    {HE IH  IH  R OW0}.
-combo 2    {HE IH  IH  R 0W1}.
-combo 3    {HE IH1 IH1 R OW0}.
-combo 4    {HE IH1 IH1 R 0W1}.
-combo 5    {HE IY  IY  R OW0}.
-combo 6    {HE IY  IY  R 0W1}.
-combo 7    {HE IY1 IY1 R OW0}.
-combo 8    {HE IY1 IY1 R 0W1}.
-combo 9    {HH IH  IH  R OW0}.
-combo 10   {HH IH  IH  R 0W1}.
-combo 11   {HH IH1 IH1 R OW0}.
-combo 12   {HH IH1 IH1 R 0W1}.
-combo 13   {HH IY  IY  R OW0}.
-combo 14   {HH IY  IY  R 0W1}.
-combo 15   {HH IY1 IY1 R OW0}.
-combo 16   {HH IY1 IY1 R 0W1}.
+combo 1    {HE IH  IH  R OW0}.  {HE IH  IH  R OW0}.  {HE IH  IH  R OW0}.  {HE IH  IH  R OW0}.
+combo 2    {HE IH  IH  R OW1}.  {HE IH  IH  R OW1}.  {HE IH  IH  R OW1}.  {HE IH  IH  R OW1}.
+combo 2b    {HE IH  IH  R OW}.  {HE IH  IH  R OW}.  {HE IH  IH  R OW}.  {HE IH  IH  R OW}.
+combo 2c    {HE IH  IH  R O}.  {HE IH  IH  R O}.  {HE IH  IH  R O}.  {HE IH  IH  R O}.
+combo 2d    {HE IY  IY  R O}.  {HE IY  IY  R O}.  {HE IY  IY  R O}.  {HE IY  IY  R O}.
+claude {combo 2d    {HE IY  IY  R O}.  {HE IY  IY  R O}.  {HE IY  IY  R O}.  {HE IY  IY  R O}.
+
+claude 2a   {HH IH IH D OW}.    {HH IH IH D OW}.   
+claude 2b   {HE IH IH D OW}.    {HE IH IH D OW}.  
+claude 2c   {HH IH D OW}.    {HH IH D OW}.  
+claude 2d   {HE IH D OW}.    {HE IH D OW}.  
+claude 2e   {HH IH1 IH0 D OW}.    {HH IH1 IH0 D OW}.  
+claude 2f   {HE IH1 IH0 D OW}.    {HE IH1 IH0 D OW}.  
+claude 2g   {HH IH0 IH0 D OW}.    {HE IH0 IH0 D OW}.  
+claude 2h   {HE IH0 IH0 D OW}.    {HE IH0 IH0 D OW}.  
+
+claude 2a   {HH IY IY DH OW}.    {HH IY IY DH OW}.   
+claude 2b   {HE IY IY DH OW}.    {HE IY IY DH OW}.  
+claude 2c   {HH IY DH OW}.    {HH IY DH OW}.  
+claude 2d   {HE IY DH OW}.    {HE IY DH OW}.  
+claude 2e   {HH IY1 IY0 DH OW}.    {HE IY1 IY0 DH OW}.  
+claude 2f   {HE IY1 IY0 DH OW}.    {HE IY1 IY0 DH OW}.  
+claude 2g   {HH IY0 IY0 DH OW}.    {HE IY0 IY0 DH OW}.  
+claude 2h   {HE IY0 IY0 DH OW}.    {HE IY0 IY0 DH OW}.  
+
+claude 3a   {HH IY IY R OW}.    {HH IY IY R OW}.   
+claude 3b   {HE IY IY R OW}.    {HE IY IY R OW}.  
+claude 3c   {HH IY R OW}.    {HH IY R OW}.  
+claude 3d   {HE IY R OW}.    {HE IY R OW}.  
+claude 3e   {HH IY1 IY0 R OW}.    {HE IY1 IY0 R OW}.  
+claude 3f   {HE IY1 IY0 R OW}.    {HE IY1 IY0 R OW}.  
+claude 3g   {HH IY0 IY0 R OW}.    {HE IY0 IY0 R OW}.  
+claude 3h   {HE IY0 IY0 R OW}.    {HE IY0 IY0 R OW}.  
+
+claude 5a   {HH IY IY L OW}.    {HH IY IY L OW}.   
+claude 5b   {HE IY IY L OW}.    {HE IY IY L OW}.  
+claude 5c   {HH IY L OW}.    {HH IY L OW}.  
+claude 5d   {HE IY L OW}.    {HE IY L OW}.  
+claude 5e   {HH IY1 IY0 L OW}.    {HE IY1 IY0 L OW}.  
+claude 5f   {HE IY1 IY0 L OW}.    {HE IY1 IY0 L OW}.  
+claude 5g   {HH IY0 IY0 L OW}.    {HE IY0 IY0 L OW}.  
+claude 5h   {HE IY0 IY0 L OW}.    {HE IY0 IY0 L OW}.  
+
+x combo 3    {HE IH1 IH1 R OW0}.  {HE IH1 IH1 R OW0}.  {HE IH1 IH1 R OW0}.  {HE IH1 IH1 R OW0}.
+x combo 4    {HE IH1 IH1 R OW1}.  {HE IH1 IH1 R OW1}.  {HE IH1 IH1 R OW1}.  {HE IH1 IH1 R OW1}.
+combo 5    {HE IY  IY  R OW0}.  {HE IY  IY  R OW0}.  {HE IY  IY  R OW0}.  {HE IY  IY  R OW0}.
+combo     {HH IY IY RO}.  {HH IY IY RO}.  {HH IY IY RO}.  {HH IY IY RO}.
+combo 6    {HE IY  IY  R OW1}.  {HE IY  IY  R OW1}.  {HE IY  IY  R OW1}.  {HE IY  IY  R OW1}.
+combo 7    {HE IY1 IY1 R OW0}.  {HE IY1 IY1 R OW0}.  {HE IY1 IY1 R OW0}.  {HE IY1 IY1 R OW0}.
+combo 8    {HE IY1 IY1 R OW1}.  {HE IY1 IY1 R OW1}.  {HE IY1 IY1 R OW1}.  {HE IY1 IY1 R OW1}.
+combo 9    {HH IH  IH  R OW0}.  {HH IH  IH  R OW0}.  {HH IH  IH  R OW0}.  {HH IH  IH  R OW0}.
+combo 10   {HH IH  IH  R OW1}.  {HH IH  IH  R OW1}.  {HH IH  IH  R OW1}.  {HH IH  IH  R OW1}.
+combo 11   {HH IH1 IH1 R OW0}.  {HH IH1 IH1 R OW0}.  {HH IH1 IH1 R OW0}.  {HH IH1 IH1 R OW0}.
+combo 12   {HH IH1 IH1 R OW1}.  {HH IH1 IH1 R OW1}.  {HH IH1 IH1 R OW1}.  {HH IH1 IH1 R OW1}.
+combo 13   {HH IY  IY  R OW0}.  {HH IY  IY  R OW0}.  {HH IY  IY  R OW0}.  {HH IY  IY  R OW0}.
+combo 14   {HH IY  IY  R OW1}.  {HH IY  IY  R OW1}.  {HH IY  IY  R OW1}.  {HH IY  IY  R OW1}.
+combo 15   {HH IY1 IY1 R OW0}.  {HH IY1 IY1 R OW0}.  {HH IY1 IY1 R OW0}.  {HH IY1 IY1 R OW0}.
+combo 16   {HH IY1 IY1 R OW1}.  {HH IY1 IY1 R OW1}.  {HH IY1 IY1 R OW1}.  {HH IY1 IY1 R OW1}.
 
