@@ -4,7 +4,7 @@ build:
 	./bin/build
 
 connect:
-	docker compose exec sandbox zsh
+	docker compose exec sandbox /usr/bin/tmux new -A
 
 run:
 	@if [ -z "$(w)" ]; then \
