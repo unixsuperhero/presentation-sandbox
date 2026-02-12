@@ -70,7 +70,7 @@ workspace_name="${selected#*.}"
 echo "export STARSHIP_CONTAINER_NAME=\"$workspace_name\"" > config/.zshrc.workspace
 
 # Parse workspace.yml and generate docker-compose override
-workspace_yml="$workspace_path/workspace.yml"
+workspace_yml="$workspace_path/config.yml"
 override_file="docker-compose.override.yml"
 
 # Default values
@@ -79,7 +79,7 @@ hiiro_enabled="true"
 workspace_volumes=()
 skip_nvim_data="false"
 
-# Parse workspace.yml if it exists
+# Parse config.yml if it exists
 if [[ -f "$workspace_yml" ]]; then
   echo "Reading workspace configuration from $workspace_yml"
 

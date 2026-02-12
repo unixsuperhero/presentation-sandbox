@@ -10,3 +10,4 @@ workspaces/
 docker-compose.override.yml
 config/nvim-local/
 tmp/
+misc/
