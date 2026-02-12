@@ -3,6 +3,9 @@
 build:
 	./bin/build
 
+connect:
+	docker compose exec sandbox zsh
+
 run:
 	@if [ -z "$(w)" ]; then \
 		echo "Usage: make run w=<number|name>"; \
